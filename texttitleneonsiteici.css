@@ -1,0 +1,83 @@
+/* ✨ Neon Title Effect — zeydior-dev (Responsive + Blogger compatible) */
+
+/* === Global Variables === */
+:root {
+  --bg: #22262D;
+  --accent: #00FFF2;
+  --accent-dark: #00B8C2;
+  --accent-hover: #B51200;
+  --text: #EAF8FF;
+}
+
+/* === Neon Title for h1 & .neon-title === */
+.neon-title, h1 {
+  color: var(--text);
+  font-size: clamp(1.6rem, 3.6vw + 0.8rem, 3.2rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  text-shadow:
+    0 0 8px rgba(0,255,242,0.6),
+    0 0 20px rgba(0,255,242,0.4),
+    0 0 40px rgba(0,255,242,0.2);
+  animation: titleGlow 3s ease-in-out infinite;
+  transition: all 0.3s ease-in-out;
+  margin: 1.2em auto 0.8em auto;
+  line-height: 1.1;
+  max-width: 95%;
+}
+
+/* === Animation Keyframes === */
+@keyframes titleGlow {
+  0%, 100% {
+    text-shadow:
+      0 0 6px rgba(0,255,242,0.6),
+      0 0 16px rgba(0,255,242,0.35);
+  }
+  50% {
+    text-shadow:
+      0 0 14px rgba(0,255,242,1),
+      0 0 34px rgba(0,255,242,0.6);
+  }
+}
+
+/* === Hover Glow === */
+.neon-title:hover, h1:hover {
+  color: #FFF1F1;
+  text-shadow:
+    0 0 8px var(--accent-hover),
+    0 0 20px var(--accent-hover),
+    0 0 40px var(--accent-hover),
+    0 0 100px var(--accent-hover);
+  transform: scale(1.03);
+}
+
+/* === Mobile Optimization === */
+@media (max-width: 600px) {
+  .neon-title, h1 {
+    font-size: clamp(1.4rem, 5vw, 2.2rem);
+    text-shadow:
+      0 0 6px rgba(0,255,242,0.55),
+      0 0 12px rgba(0,255,242,0.28);
+    animation-duration: 4.2s;
+  }
+}
+
+/* === Touch Devices (No Hover) === */
+@media (hover: none) {
+  .neon-title:hover, h1:hover {
+    transform: none;
+    text-shadow:
+      0 0 10px rgba(0,255,242,0.8),
+      0 0 20px rgba(0,255,242,0.4);
+  }
+}
+
+/* === Accessibility === */
+@media (prefers-reduced-motion: reduce) {
+  .neon-title, h1 {
+    animation: none !important;
+    transition: none !important;
+  }
+}
