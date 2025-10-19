@@ -1,4 +1,4 @@
-/* ✨ Neon Title Effect — zeydior-dev (Force Enabled for Blogger) */
+/* ✨ Neon Title Effect — zeydior-dev (h1 + h2 / Blogger Compatible) */
 
 /* === Global Variables === */
 :root {
@@ -9,10 +9,9 @@
   --text: #EAF8FF;
 }
 
-/* === Neon Title for h1 & .neon-title === */
-.neon-title, h1 {
+/* === Neon Title (h1 & h2 & .neon-title) === */
+.neon-title, h1, h2 {
   color: var(--text) !important;
-  font-size: clamp(1.6rem, 3.6vw + 0.8rem, 3.2rem) !important;
   font-weight: 800 !important;
   text-transform: uppercase !important;
   letter-spacing: 2px !important;
@@ -23,10 +22,14 @@
     0 0 40px rgba(0,255,242,0.25) !important;
   animation: titleGlow 3s ease-in-out infinite !important;
   transition: all 0.3s ease-in-out !important;
-  margin: 1.2em auto 0.8em auto !important;
   line-height: 1.1 !important;
   max-width: 95% !important;
+  margin: 1em auto 0.6em auto !important;
 }
+
+/* h1 büyük, h2 biraz daha küçük */
+h1 { font-size: clamp(1.8rem, 3.8vw + 0.6rem, 3.4rem) !important; }
+h2 { font-size: clamp(1.4rem, 2.8vw + 0.4rem, 2.4rem) !important; }
 
 /* === Animation Keyframes === */
 @keyframes titleGlow {
@@ -43,7 +46,7 @@
 }
 
 /* === Hover Glow === */
-.neon-title:hover, h1:hover {
+.neon-title:hover, h1:hover, h2:hover {
   color: #FFF1F1 !important;
   text-shadow:
     0 0 8px var(--accent-hover) !important,
@@ -55,18 +58,19 @@
 
 /* === Mobile Optimization === */
 @media (max-width: 600px) {
-  .neon-title, h1 {
-    font-size: clamp(1.4rem, 5vw, 2.2rem) !important;
+  .neon-title, h1, h2 {
     text-shadow:
       0 0 6px rgba(0,255,242,0.55) !important,
       0 0 12px rgba(0,255,242,0.28) !important;
     animation-duration: 4.2s !important;
   }
+  h1 { font-size: clamp(1.6rem, 5vw, 2.4rem) !important; }
+  h2 { font-size: clamp(1.2rem, 4vw, 1.8rem) !important; }
 }
 
 /* === Touch Devices (No Hover) === */
 @media (hover: none) {
-  .neon-title:hover, h1:hover {
+  .neon-title:hover, h1:hover, h2:hover {
     transform: none !important;
     text-shadow:
       0 0 10px rgba(0,255,242,0.8) !important,
@@ -76,7 +80,7 @@
 
 /* === Accessibility === */
 @media (prefers-reduced-motion: reduce) {
-  .neon-title, h1 {
+  .neon-title, h1, h2 {
     animation: none !important;
     transition: none !important;
   }
