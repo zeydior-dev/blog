@@ -1,35 +1,56 @@
-/* ==== COPY BUTTON STYLES ==== */
-.copy-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: .6rem;
-  font-weight: 600;
-  font-size: .95rem;
-  color: #fff;
-  background: #111;
-  border: none;
-  border-radius: 10px;
-  padding: .6rem 1.2rem;
+/* 💠 Neon Kordinat Kopyala Butonu — zeydior-dev */
+
+.neon-copy-btn {
+  position: relative;
+  background: transparent;
+  color: #EAF8FF;
+  border: 2px solid #00FFF2;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 14px 34px;
+  border-radius: 14px;
   cursor: pointer;
-  transition: all .2s ease;
-  box-shadow: 0 0 20px #26CFE2;
-  user-select: none;
+  transition: all 0.3s ease;
+  text-shadow:
+    0 0 8px rgba(0,255,242,0.6),
+    0 0 18px rgba(0,255,242,0.3);
+  box-shadow:
+    0 0 12px rgba(0,255,242,0.3),
+    inset 0 0 8px rgba(0,255,242,0.2);
 }
-.copy-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 0 25px #B51200;
+
+.neon-copy-btn:hover {
+  color: #000;
+  background: #00FFF2;
+  border-color: #00B8C2;
+  box-shadow: 0 0 28px rgba(0,255,242,0.8), 0 0 60px rgba(0,255,242,0.4);
+  transform: translateY(-3px) scale(1.05);
 }
-.copy-btn:active {
-  transform: scale(0.97);
+
+.neon-copy-btn:active {
+  transform: scale(0.96);
+  box-shadow: 0 0 14px rgba(0,255,242,0.6), 0 0 30px rgba(0,255,242,0.4);
 }
-.copy-message {
-  margin-left: .6rem;
-  color: #26CFE2;
-  font-size: .9rem;
-  font-weight: 500;
-  transition: opacity .3s ease;
+
+/* Bildirim kutusu */
+.copy-toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,255,242,0.15);
+  color: #00FFF2;
+  border: 1px solid #00FFF2;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-size: 15px;
+  font-weight: 600;
+  text-shadow: 0 0 6px rgba(0,255,242,0.6);
+  box-shadow: 0 0 10px rgba(0,255,242,0.4);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 99999;
 }
-@media (max-width:600px){
-  .copy-btn { width:100%; justify-content:center; }
-}
+.copy-toast.active { opacity: 1; }
