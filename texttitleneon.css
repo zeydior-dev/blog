@@ -1,0 +1,128 @@
+/* textTitle.css — Responsive Neon Glow Başlık Efekti (zeydior-dev) */
+/* Tema renkleri */
+:root{
+  --bg: #22262D;
+  --accent: #00FFF2;
+  --accent-dark: #00B8C2;
+  --accent-hover: #B51200;
+  --text: #EAF8FF;
+}
+
+/* Temel ayarlar (başlık konteynerine uygulanırsa iyi sonuç verir) */
+.neon-title,
+.neon-sub,
+.neon-mini {
+  color: var(--text);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  text-align: center;
+  margin: 0.3em 0;
+  display: block;
+  word-break: keep-all;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* H1: büyük başlık — ölçekli */
+.neon-title {
+  /* clamp(min, preferred, max) — uyumlu, akıllı scaling */
+  font-size: clamp(1.6rem, 3.6vw + 0.8rem, 3.2rem);
+  line-height: 1.02;
+  letter-spacing: clamp(0.02em, 0.6vw, 0.08em);
+  text-shadow:
+    0 0 6px rgba(0,255,242,0.65),
+    0 0 18px rgba(0,255,242,0.45),
+    0 0 40px rgba(0,255,242,0.18);
+  transition: transform .22s ease, text-shadow .28s ease, color .18s ease;
+  animation: titleGlow 3.2s ease-in-out infinite;
+  max-width: min(1100px, 92%);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* H2: alt başlık / küçük hero */
+.neon-sub {
+  font-size: clamp(1.15rem, 2.6vw + 0.4rem, 1.9rem);
+  line-height: 1.08;
+  letter-spacing: .06em;
+  text-shadow:
+    0 0 5px rgba(0,255,242,0.55),
+    0 0 14px rgba(0,255,242,0.32);
+  animation: titleGlow 3.6s ease-in-out infinite;
+  max-width: min(900px, 92%);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* H3 / küçük etiketler */
+.neon-mini {
+  font-size: clamp(.9rem, 1.5vw + 0.2rem, 1.2rem);
+  line-height: 1.1;
+  letter-spacing: .04em;
+  text-shadow: 0 0 4px rgba(0,255,242,0.45);
+}
+
+/* Animasyon (yumuşak nefes) */
+@keyframes titleGlow {
+  0%,100% {
+    text-shadow:
+      0 0 6px rgba(0,255,242,0.6),
+      0 0 16px rgba(0,255,242,0.35);
+  }
+  50% {
+    text-shadow:
+      0 0 14px rgba(0,255,242,1),
+      0 0 34px rgba(0,255,242,0.6);
+  }
+}
+
+/* Hover: kırmızı neon (daha güçlü, ama küçük ekranlarda/ dokunmatiklerde devre dışı) */
+@media (hover: hover) and (pointer: fine) {
+  .neon-title:hover,
+  .neon-sub:hover,
+  .neon-mini:hover {
+    color: #FFF1F1;
+    text-shadow:
+      0 0 8px var(--accent-hover),
+      0 0 20px var(--accent-hover),
+      0 0 40px var(--accent-hover),
+      0 0 100px var(--accent-hover);
+    transform: scale(1.03);
+  }
+}
+
+/* Küçük ekran optimizasyonu: gölgeleri azalt, animasyonu yavaşlat */
+@media (max-width: 600px) {
+  .neon-title {
+    text-shadow:
+      0 0 6px rgba(0,255,242,0.55),
+      0 0 12px rgba(0,255,242,0.28);
+    animation-duration: 4.2s;
+  }
+  .neon-sub { animation-duration: 4.6s; }
+}
+
+/* Very small devices: further tone down for readability */
+@media (max-width: 380px) {
+  .neon-title { font-size: clamp(1.3rem, 6vw, 2.2rem); line-height:1.05; }
+  .neon-sub { font-size: 1.05rem; line-height:1.08; }
+}
+
+/* Erişilebilirlik: eğer kullanıcı hareket azaltmayı tercih ediyse animasyonu kapat */
+@media (prefers-reduced-motion: reduce) {
+  .neon-title,
+  .neon-sub,
+  .neon-mini {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Opsiyonel: container içinde white-space kontrolü, taşmayı engelle */
+.neon-title-wrap {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 12px;
+  box-sizing: border-box;
+}
