@@ -1,4 +1,4 @@
-/* ✨ Neon Title Effect — zeydior-dev (Responsive + Blogger compatible) */
+/* ✨ Neon Title Effect — zeydior-dev (Force Enabled for Blogger) */
 
 /* === Global Variables === */
 :root {
@@ -11,21 +11,21 @@
 
 /* === Neon Title for h1 & .neon-title === */
 .neon-title, h1 {
-  color: var(--text);
-  font-size: clamp(1.6rem, 3.6vw + 0.8rem, 3.2rem);
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  text-align: center;
+  color: var(--text) !important;
+  font-size: clamp(1.6rem, 3.6vw + 0.8rem, 3.2rem) !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  text-align: center !important;
   text-shadow:
-    0 0 8px rgba(0,255,242,0.6),
-    0 0 20px rgba(0,255,242,0.4),
-    0 0 40px rgba(0,255,242,0.2);
-  animation: titleGlow 3s ease-in-out infinite;
-  transition: all 0.3s ease-in-out;
-  margin: 1.2em auto 0.8em auto;
-  line-height: 1.1;
-  max-width: 95%;
+    0 0 8px rgba(0,255,242,0.8) !important,
+    0 0 20px rgba(0,255,242,0.5) !important,
+    0 0 40px rgba(0,255,242,0.25) !important;
+  animation: titleGlow 3s ease-in-out infinite !important;
+  transition: all 0.3s ease-in-out !important;
+  margin: 1.2em auto 0.8em auto !important;
+  line-height: 1.1 !important;
+  max-width: 95% !important;
 }
 
 /* === Animation Keyframes === */
@@ -38,39 +38,39 @@
   50% {
     text-shadow:
       0 0 14px rgba(0,255,242,1),
-      0 0 34px rgba(0,255,242,0.6);
+      0 0 34px rgba(0,255,242,0.7);
   }
 }
 
 /* === Hover Glow === */
 .neon-title:hover, h1:hover {
-  color: #FFF1F1;
+  color: #FFF1F1 !important;
   text-shadow:
-    0 0 8px var(--accent-hover),
-    0 0 20px var(--accent-hover),
-    0 0 40px var(--accent-hover),
-    0 0 100px var(--accent-hover);
-  transform: scale(1.03);
+    0 0 8px var(--accent-hover) !important,
+    0 0 20px var(--accent-hover) !important,
+    0 0 40px var(--accent-hover) !important,
+    0 0 100px var(--accent-hover) !important;
+  transform: scale(1.03) !important;
 }
 
 /* === Mobile Optimization === */
 @media (max-width: 600px) {
   .neon-title, h1 {
-    font-size: clamp(1.4rem, 5vw, 2.2rem);
+    font-size: clamp(1.4rem, 5vw, 2.2rem) !important;
     text-shadow:
-      0 0 6px rgba(0,255,242,0.55),
-      0 0 12px rgba(0,255,242,0.28);
-    animation-duration: 4.2s;
+      0 0 6px rgba(0,255,242,0.55) !important,
+      0 0 12px rgba(0,255,242,0.28) !important;
+    animation-duration: 4.2s !important;
   }
 }
 
 /* === Touch Devices (No Hover) === */
 @media (hover: none) {
   .neon-title:hover, h1:hover {
-    transform: none;
+    transform: none !important;
     text-shadow:
-      0 0 10px rgba(0,255,242,0.8),
-      0 0 20px rgba(0,255,242,0.4);
+      0 0 10px rgba(0,255,242,0.8) !important,
+      0 0 20px rgba(0,255,242,0.4) !important;
   }
 }
 
