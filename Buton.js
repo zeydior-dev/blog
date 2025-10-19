@@ -1,18 +1,29 @@
-// 💠 Neon Kordinat Kopyala Butonu — zeydior-dev
-document.addEventListener('click', function(e) {
-  if (e.target.classList.contains('neon-copy-btn')) {
-    const textToCopy = e.target.getAttribute('data-copy') || '';
-    if (!textToCopy) return;
-    navigator.clipboard.writeText(textToCopy);
-    
-    let toast = document.querySelector('.copy-toast');
-    if (!toast) {
-      toast = document.createElement('div');
-      toast.className = 'copy-toast';
-      document.body.appendChild(toast);
-    }
-    toast.textContent = 'Kordinat kopyalandı!';
-    toast.classList.add('active');
-    setTimeout(() => toast.classList.remove('active'), 1500);
-  }
+// 🌐 Neon Kopyalama Butonu — zeydior-dev
+
+document.addEventListener("DOMContentLoaded", () => {
+  const buttons = document.querySelectorAll(".neon-copy-btn");
+
+  buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const textToCopy = btn.getAttribute("data-copy");
+      if (!textToCopy) return;
+
+      navigator.clipboard.writeText(textToCopy).then(() => {
+        showCopyToast("✅ Kopyalandı");
+      });
+    });
+  });
 });
+
+function showCopyToast(message) {
+  let toast = document.createElement("div");
+  toast.className = "copy-toast";
+  toast.textContent = message;
+  document.body.appendChild(toast);
+
+  setTimeout(() => toast.classList.add("show"), 10);
+  setTimeout(() => {
+    toast.classList.remove("show");
+    setTimeout(() => toast.remove(), 300);
+  }, 2000);
+}
